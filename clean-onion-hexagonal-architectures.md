@@ -26,6 +26,8 @@ Adapters (adapters implement the ports).
 
 The service can be thought of as a clean architecture.
 
+<img width="1280" height="720" alt="hexagonal" src="https://github.com/user-attachments/assets/9f3ded31-03ce-4199-aaa9-c106d5b7dcc3" />
+
 # ADVICE
 
 When working with architectures, patterns, or anything else, you need to know how to adapt it to what you need. For example, we might need a hybrid, or we might not need 100% of clean, onion, or hexagonal architecture.
