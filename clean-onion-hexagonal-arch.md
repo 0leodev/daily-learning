@@ -15,6 +15,8 @@ The adapter is important because if the API changes to another one or the same A
 
 # Hexagonal Architecture
 
+Think of it more as port and adapter architecture instead of hexagonal...
+
 * **Services** (this is where the domain layer is)
 * **Ports**
 * **Adapters**
