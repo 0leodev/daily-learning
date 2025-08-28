@@ -46,3 +46,51 @@ Then, based on that, adapt the design of the architecture.
 The **frontend or UI** is really an **external layer**, because everything external is removable.
 
 The **DOM** is really an adapter; it’s an API we use to communicate with the browser. So, if the browser updates in the future, communication doesn’t break, only the adapter changes. It’s just a way to communicate.
+
+**Entity** is typically a class or object that models a **domain concept**, holding data (state) and behavior (methods), and has a unique identity. It is not an interface, function, or simple variable. A **domain** can have multiple **entities**, each representing a distinct real-world concept, for example, in the domain of an e-commerce, entities would be **User**, **Product**, **Order**, and **Payment**. Real example:
+
+```ts
+abstract class BaseEntity {
+  constructor(
+    public readonly id: number,
+    public readonly createdAt = new Date()
+  ) {}
+}
+
+class User extends BaseEntity {
+  constructor(id: number, public name: string, public email: string) {
+    super(id);
+  }
+}
+
+class Product extends BaseEntity {
+  constructor(
+    id: number,
+    public name: string,
+    public price: number,
+    public stock: number
+  ) {
+    super(id);
+  }
+}
+
+class Order extends BaseEntity {
+  public readonly total: number;
+
+  constructor(id: number, public user: User, public products: Product[]) {
+    super(id);
+    this.total = products.reduce((sum, p) => sum + p.price, 0);
+  }
+}
+
+class Payment extends BaseEntity {
+  constructor(
+    id: number,
+    public order: Order,
+    public amount: number,
+    public method: 'card' | 'paypal',
+    public readonly paidAt = new Date()
+  ) {
+    super(id);
+  }
+}
