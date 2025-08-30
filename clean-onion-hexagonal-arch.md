@@ -13,6 +13,8 @@ In other words, we use an API (external layer), adapt the data we send bidirecti
 
 The adapter is important because if the API changes to another one or the same API is modified in the future, it wouldn’t break the app.
 
+<img width="1280" height="720" alt="Clean architecture" src="https://github.com/user-attachments/assets/42777027-5375-4ac4-a4d9-c45bab1417af" />
+
 # Hexagonal Architecture
 
 Think of it more as port and adapter architecture instead of hexagonal...
